@@ -34,10 +34,9 @@ public static class NormalMove
     {
         animator.SetFloat(MovementParameterEnum.WALK, MovementValuesEnum.FORWARD);
         animator.SetBool(MovementParameterEnum.JUMP, true);
-        animator.SetTrigger(MovementParameterEnum.JUMP_TRIGGER);
         Vector3 u = camera.transform.up;
         Vector3 f = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z);
-        int upConstants = 3;
+        int upConstants = 4;
         int fConstants = 2;
         transform.position += u * (upConstants * (Time.deltaTime * speed));
         transform.position += f * (fConstants * (Time.deltaTime * speed));

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RunMove
 {
@@ -19,11 +18,10 @@ public class RunMove
     {
         animator.SetFloat(MovementParameterEnum.WALK, MovementValuesEnum.FORWARD);
         animator.SetBool(MovementParameterEnum.JUMP, true);
-        animator.SetTrigger(MovementParameterEnum.JUMP_TRIGGER);
         Vector3 u = camera.transform.up;
         Vector3 f = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z);
-        int upConstants = (boosted) ? 6 : 3;
-        int fConstants = (boosted) ? 6 : 3;
+        int upConstants = (boosted) ? 8 : 5;
+        int fConstants = (boosted) ? 8 : 5;
         transform.position += u * (upConstants * (Time.deltaTime * speed));
         transform.position += f * (fConstants * (Time.deltaTime * speed));
         rigidbody.AddForce(Vector3.up * upConstants);
