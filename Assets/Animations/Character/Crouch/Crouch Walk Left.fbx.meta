@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: fb0f272effc716c49a8b58e51aff2974
+guid: 922983ca14e70dd44bd15d43b45fe6c7
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
+    second: LeftCrouch
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: LeftCrouch
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 65
+      lastFrame: 75
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

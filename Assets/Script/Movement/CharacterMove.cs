@@ -18,6 +18,7 @@ namespace Script
         {
             animator.SetFloat(MovementParameterEnum.WALK, MovementValuesEnum.IDLE);
             animator.SetFloat(MovementParameterEnum.RUN, MovementValuesEnum.IDLE);
+            animator.SetFloat(MovementParameterEnum.CROUCH, MovementValuesEnum.IDLE);
             animator.SetBool(MovementParameterEnum.JUMP, false);
         }
 
@@ -34,6 +35,7 @@ namespace Script
             {
                 animator.SetFloat(MovementParameterEnum.WALK, MovementValuesEnum.IDLE);
                 animator.SetFloat(MovementParameterEnum.RUN, MovementValuesEnum.IDLE);
+                animator.SetFloat(MovementParameterEnum.CROUCH, MovementValuesEnum.IDLE);
                 animator.SetBool(MovementParameterEnum.JUMP, false);
                 animator.StopPlayback();
             }
@@ -58,20 +60,33 @@ namespace Script
                 animator.SetFloat(MovementParameterEnum.RUN, MovementValuesEnum.RUN_SLOWLY);
             if (Utils.wasReleasedThisFrame(KeyCode.LeftShift))
                 animator.SetFloat(MovementParameterEnum.RUN, MovementValuesEnum.IDLE);
+
+            // if (Utils.isPressed(KeyCode.C) && (animator.GetFloat(MovementParameterEnum.CROUCH) < 1))
+            //     animator.SetFloat(MovementParameterEnum.CROUCH, MovementValuesEnum.CROUCH_ANIM);
+
             //MOVE
             if (Utils.isPressed(KeyCode.W))
-            {
                 if (animator.GetFloat(MovementParameterEnum.RUN) > 0)
                     RunMove.MoveForward(animator, camera, transform, speed, boosted);
+                else if (animator.GetFloat(MovementParameterEnum.CROUCH) > 0)
+                    CrouchMove.MoveForward(animator, camera, transform, speed);
                 else
                     NormalMove.MoveForward(animator, camera, transform, speed);
-            }
             else if (Utils.isPressed(KeyCode.S))
-                NormalMove.MoveBack(animator, camera, transform, speed);
+                if (animator.GetFloat(MovementParameterEnum.CROUCH) > 0)
+                    CrouchMove.MoveBack(animator, camera, transform, speed);
+                else
+                    NormalMove.MoveBack(animator, camera, transform, speed);
             else if (Utils.isPressed(KeyCode.A))
-                NormalMove.MoveLeft(animator, camera, transform, speed);
+                if (animator.GetFloat(MovementParameterEnum.CROUCH) > 0)
+                    CrouchMove.MoveLeft(animator, camera, transform, speed);
+                else
+                    NormalMove.MoveLeft(animator, camera, transform, speed);
             else if (Utils.isPressed(KeyCode.D))
-                NormalMove.MoveRight(animator, camera, transform, speed);
+                if (animator.GetFloat(MovementParameterEnum.CROUCH) > 0)
+                    CrouchMove.MoveRight(animator, camera, transform, speed);
+                else
+                    NormalMove.MoveRight(animator, camera, transform, speed);
 
             if (Utils.wasReleasedThisFrame(KeyCode.Space) && Utils.animatorIsPlaying(animator) ||
                 (!Utils.animatorIsPlaying(animator) && animator.GetBool(MovementParameterEnum.JUMP)))

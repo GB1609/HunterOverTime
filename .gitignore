@@ -44,6 +44,7 @@ ExportedObj/
 *.opendb
 *.VC.db
 
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -61,10 +62,10 @@ crashlytics-build.properties
 
 Assets/Tayx
 Assets/Standard Assets
-Assets/Scenes
 Assets/Samples
 Assets/Models
 Assets/Materials
 Assets/Environment
 Assets/Devion Games
 Assets/_TerrainAutoUpgrade
+Assets/Scenes/MedievalScene

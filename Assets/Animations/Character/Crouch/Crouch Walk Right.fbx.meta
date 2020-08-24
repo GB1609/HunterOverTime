@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: fb0f272effc716c49a8b58e51aff2974
+guid: 488ffad1404b3fd4e815256cfb247a18
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
+    second: CrouchRight
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -25,7 +25,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
+    importConstraints: 1
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: CrouchRight
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
