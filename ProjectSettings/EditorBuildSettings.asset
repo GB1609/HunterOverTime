@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/BeginScene.unity
+    guid: a86607b478259234880f267850f99e3e
+  - enabled: 0
+    path: Assets/Scenes/MedievalScene.unity
+    guid: 5f9bffe4b4cd8bc429fb1ef83a91600a
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: d4e2682feaed2f044a8a3f0fc5cc0530,
+      type: 2}
