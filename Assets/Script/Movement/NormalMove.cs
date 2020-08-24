@@ -29,4 +29,18 @@ public static class NormalMove
         Vector3 r = new Vector3(camera.transform.right.x, 0, camera.transform.right.z);
         transform.position += r * (Time.deltaTime * speed);
     }
+
+    public static void Jump(Animator animator, Transform transform, Camera camera, int speed, Rigidbody rigidbody)
+    {
+        animator.SetFloat(MovementParameterEnum.WALK, MovementValuesEnum.FORWARD);
+        animator.SetBool(MovementParameterEnum.JUMP, true);
+        animator.SetTrigger(MovementParameterEnum.JUMP_TRIGGER);
+        Vector3 u = camera.transform.up;
+        Vector3 f = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z);
+        int upConstants = 3;
+        int fConstants = 2;
+        transform.position += u * (upConstants * (Time.deltaTime * speed));
+        transform.position += f * (fConstants * (Time.deltaTime * speed));
+        rigidbody.AddForce(Vector3.up * upConstants);
+    }
 }
