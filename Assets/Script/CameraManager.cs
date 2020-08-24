@@ -23,5 +23,10 @@ public class CameraManager : MonoBehaviour
                 ? cameraTransform.position += cameraTransform.forward * 3
                 : cameraTransform.position -= cameraTransform.forward * 3;
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            //TODO camera dall0alto
+        }
     }
 }
