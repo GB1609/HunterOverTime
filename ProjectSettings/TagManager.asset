@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CrossHair
   - PlayerCamera
+  - MiddleCamera
+  - MiniCamera
   layers:
   - Default
   - TransparentFX
