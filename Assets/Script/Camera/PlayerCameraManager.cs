@@ -2,6 +2,7 @@
 
 public class PlayerCameraManager : MonoBehaviour
 {
+
     public Transform cameraTransform;
 
     public GameObject crosshair;
@@ -20,8 +21,8 @@ public class PlayerCameraManager : MonoBehaviour
         {
             crosshair.SetActive(!crosshair.activeSelf);
             cameraTransform.position = (crosshair.activeSelf)
-                ? cameraTransform.position += cameraTransform.forward * 3
-                : cameraTransform.position -= cameraTransform.forward * 3;
+                ? cameraTransform.position += cameraTransform.forward * 5
+                : cameraTransform.position -= cameraTransform.forward * 5;
         }
     }
 }

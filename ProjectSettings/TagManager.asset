@@ -8,6 +8,7 @@ TagManager:
   - PlayerCamera
   - MiddleCamera
   - MiniCamera
+  - PlayerBoat
   layers:
   - Default
   - TransparentFX
