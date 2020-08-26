@@ -7,4 +7,5 @@ public class MovementParameterEnum
     public static readonly String RUN = "Run";
     public static readonly String JUMP = "Jump";
     public static readonly String SWIM = "Swim";
+    public static readonly String FALL = "Fall";
 }
