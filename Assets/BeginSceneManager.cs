@@ -6,12 +6,12 @@ public class BeginSceneManager : MonoBehaviour
 {
     public Camera camera;
     public int speed;
-    public String sceneToLoad;
+    private String sceneToLoad;
 
     private void Start()
     {
-        // Cursor.lockState = CursorLockMode.Locked;
-        Camera.main.ScreenPointToRay(Input.mousePosition);
+        sceneToLoad = "MedievalScene";
+        Debug.DrawLine(transform.position, transform.forward * 100, Color.red, 2, false);
     }
 
     // Update is called once per frame
@@ -22,7 +22,6 @@ public class BeginSceneManager : MonoBehaviour
 
     void CameraMove()
     {
-        Debug.DrawRay(transform.position, transform.forward * -10000f, Color.green);
         if (Input.GetKey(KeyCode.A))
             transform.position += camera.transform.right * (speed * (-1 * Time.deltaTime));
         else if (Input.GetKey(KeyCode.D))

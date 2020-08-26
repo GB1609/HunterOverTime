@@ -56,6 +56,8 @@ public class MouseLook : MonoBehaviour
         if (GetComponent<Rigidbody>())
             GetComponent<Rigidbody>().freezeRotation = true;
         originalRotation = transform.localRotation;
+        Screen.lockCursor = true;
+        Debug.DrawRay(transform.position, transform.forward * 100f, Color.green);
     }
 
     public static float ClampAngleHorizontal(float angle, float min, float max)
@@ -76,5 +78,4 @@ public class MouseLook : MonoBehaviour
             angle = m;
         return Mathf.Clamp(angle, min, max);
     }
-
 }
