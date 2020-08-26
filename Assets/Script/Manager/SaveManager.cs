@@ -11,7 +11,6 @@ public class SaveManager : MonoBehaviour, GameManager {
 	public static SaveManager manager = null;
 
 	public void Startup() {
-		Debug.Log("Inventory manager starting...");
 		status = ManagerStatus.Started;
 	}
 

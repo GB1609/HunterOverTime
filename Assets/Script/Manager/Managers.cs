@@ -33,16 +33,12 @@ public class Managers : MonoBehaviour {
 		int numReady = 0;
 
 		while (numReady < numModules) {
-			int lastReady = numReady;
 			numReady = 0;
 
 			foreach (GameManager manager in _startSequence) {
 				if (manager.status == ManagerStatus.Started) {
 					numReady++;
 				}
-			}
-			if (numReady > lastReady) {
-				Debug.Log("Progress: " + numReady + "/" + numModules);
 			}
 			yield return null;
 		}

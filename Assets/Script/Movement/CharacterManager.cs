@@ -33,7 +33,6 @@ namespace Script
             if (Keyboard.current.escapeKey.isPressed)
             {
                 Application.Quit();
-                EditorApplication.isPlaying = false;
             }
 
             if (!_onBoat)

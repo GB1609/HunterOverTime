@@ -47,11 +47,7 @@ public class ScenesManager : MonoBehaviour, GameManager
     private IEnumerator LoadSceneAndSetActive(string sceneName)
     {
         yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-
-        Scene newlyLoadedScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
-
-        SceneManager.SetActiveScene(newlyLoadedScene);
-
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
         // switch (sceneName)
         // {
         // 	case "BeginScene":
@@ -83,6 +79,7 @@ public class ScenesManager : MonoBehaviour, GameManager
 
     private IEnumerator Fade(float finalAlpha)
     {
+
         isFading = true;
 
         faderCanvasGroup.blocksRaycasts = true;
@@ -100,5 +97,9 @@ public class ScenesManager : MonoBehaviour, GameManager
         isFading = false;
 
         faderCanvasGroup.blocksRaycasts = false;
+    }
+    void Awake ()
+    {
+        DontDestroyOnLoad (gameObject);
     }
 }
