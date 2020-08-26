@@ -5,6 +5,8 @@ using UnityEngine;
 public class BeginSceneManager : MonoBehaviour
 {
     public Camera camera;
+    public Camera settingCamera;
+    public Camera selectMissionCamera;
     public int speed;
     private String sceneToLoad;
 
@@ -60,5 +62,17 @@ public class BeginSceneManager : MonoBehaviour
                     Debug.Log("No Scene Selected");
                     break;
             }
+
+        else if (other.gameObject.CompareTag("OptionButton"))
+        {
+            camera.gameObject.SetActive(false);
+            settingCamera.gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if (other.gameObject.CompareTag("SelectMissionButton"))
+        {
+            camera.gameObject.SetActive(false);
+            selectMissionCamera.gameObject.SetActive(true);
+        }
     }
 }

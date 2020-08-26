@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class ScenesManager : MonoBehaviour, GameManager
 {
@@ -79,7 +77,6 @@ public class ScenesManager : MonoBehaviour, GameManager
 
     private IEnumerator Fade(float finalAlpha)
     {
-
         isFading = true;
 
         faderCanvasGroup.blocksRaycasts = true;
@@ -98,8 +95,9 @@ public class ScenesManager : MonoBehaviour, GameManager
 
         faderCanvasGroup.blocksRaycasts = false;
     }
-    void Awake ()
+
+    void Awake()
     {
-        DontDestroyOnLoad (gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 }

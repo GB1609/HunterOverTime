@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Shootable
   - Teleporter
+  - CrossHair
+  - PlayerCamera
+  - OptionButton
+  - SelectMissionButton
   layers:
   - Default
   - TransparentFX
