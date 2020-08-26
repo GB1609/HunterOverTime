@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,13 @@ public class Managers : MonoBehaviour {
 	public static SaveManager Save {get; private set;}
 
 	private List<GameManager> _startSequence;
+
+	private void Start()
+	{
+		Screen.SetResolution(Screen.currentResolution.width,Screen.currentResolution.height,FullScreenMode
+		.FullScreenWindow);
+
+	}
 
 	void Awake() {
 		Scene = GetComponent<ScenesManager>();
