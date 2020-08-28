@@ -17,3 +17,7 @@ EditorBuildSettings:
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d4e2682feaed2f044a8a3f0fc5cc0530,
       type: 2}
+    com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: e0bbe352ed48b6842a35c8bcbd087738,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 58351c7334032d34289b2653b18a38f7,
+      type: 2}

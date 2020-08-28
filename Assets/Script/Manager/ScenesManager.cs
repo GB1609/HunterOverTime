@@ -96,8 +96,4 @@ public class ScenesManager : MonoBehaviour, GameManager
         faderCanvasGroup.blocksRaycasts = false;
     }
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 }

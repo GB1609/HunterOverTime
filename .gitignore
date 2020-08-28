@@ -43,6 +43,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.meta
 
 
 # Unity3D generated meta files
@@ -60,12 +61,17 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-Assets/Tayx
-Assets/Standard Assets
-Assets/Samples
-Assets/Models
-Assets/Materials
-Assets/Environment
-Assets/Devion Games
-Assets/_TerrainAutoUpgrade
-Assets/Scenes/MedievalScene
+#Assets/Tayx
+#Assets/Standard Assets
+#Assets/Samples
+#Assets/Models
+#Assets/Materials
+#Assets/Environment
+#Assets/Devion Games
+#Assets/_TerrainAutoUpgrade
+#Assets/Scenes/MedievalScene
+#/Assets/Shared/
+#/Assets/StatsCounter/
+#/Assets/TextMesh Pro/
+Hunter_Hover_Time_Data
+Assets

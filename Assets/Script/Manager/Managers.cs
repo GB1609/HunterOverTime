@@ -1,54 +1,67 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ScenesManager))]
 [RequireComponent(typeof(SaveManager))]
-public class Managers : MonoBehaviour {
+[RequireComponent(typeof(AudioManager))]
+public class Managers : MonoBehaviour
+{
+    public static ScenesManager Scene { get; private set; }
+    public static SaveManager Save { get; private set; }
+    public static AudioManager Audio { get; private set; }
 
-	public static ScenesManager Scene {get; private set;}
-	public static SaveManager Save {get; private set;}
 
-	private List<GameManager> _startSequence;
+    private List<GameManager> _startSequence;
 
-	private void Start()
-	{
-		Screen.SetResolution(Screen.currentResolution.width,Screen.currentResolution.height,FullScreenMode
-		.FullScreenWindow);
+    private void Start()
+    {
+        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode
+            .FullScreenWindow);
+        QualitySettings.SetQualityLevel(3);
+        QualitySettings.masterTextureLimit = 3;
+        Debug.Log(QualitySettings.names[0]+"               "+QualitySettings.names[QualitySettings.names.Length-1]);
+    }
 
-	}
+    void Awake()
+    {
+        Scene = GetComponent<ScenesManager>();
+        Save = GetComponent<SaveManager>();
+        Audio = GetComponent<AudioManager>();
 
-	void Awake() {
-		Scene = GetComponent<ScenesManager>();
-		Save = GetComponent<SaveManager>();
+        _startSequence = new List<GameManager>();
+        _startSequence.Add(Save);
+        _startSequence.Add(Scene);
+        _startSequence.Add(Audio);
 
-		_startSequence = new List<GameManager>();
-		_startSequence.Add(Save);
-		_startSequence.Add(Scene);
+        StartCoroutine(StartupManagers());
+    }
 
-		StartCoroutine(StartupManagers());
-	}
+    private IEnumerator StartupManagers()
+    {
+        foreach (GameManager manager in _startSequence)
+        {
+            manager.Startup();
+        }
 
-	private IEnumerator StartupManagers() {
+        yield return null;
 
-		foreach (GameManager manager in _startSequence) {
-			manager.Startup();
-		}
-		yield return null;
+        int numModules = _startSequence.Count;
+        int numReady = 0;
 
-		int numModules = _startSequence.Count;
-		int numReady = 0;
+        while (numReady < numModules)
+        {
+            numReady = 0;
 
-		while (numReady < numModules) {
-			numReady = 0;
+            foreach (GameManager manager in _startSequence)
+            {
+                if (manager.status == ManagerStatus.Started)
+                {
+                    numReady++;
+                }
+            }
 
-			foreach (GameManager manager in _startSequence) {
-				if (manager.status == ManagerStatus.Started) {
-					numReady++;
-				}
-			}
-			yield return null;
-		}
-	}
+            yield return null;
+        }
+    }
 }
