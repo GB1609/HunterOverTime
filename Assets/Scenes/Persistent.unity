@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 730831389}
   - component: {fileID: 730831388}
   - component: {fileID: 730831387}
+  - component: {fileID: 730831391}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -195,6 +196,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &730831391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730831386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af740be675808d548b1acc9e99aef9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: c0f721a6e813e6d4c96ab23701a201dd, type: 2}
+  backgroundMusic: {fileID: 1573511627}
+  transitionSound: Sounds/Transition
+  menuBgMusic: Sounds/MenuAudio
+  medievalBgMusic: Sounds/MenuAudio
+  mayaBgMusic: Sounds/MenuAudio
 --- !u!1 &913607616
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,17 +327,16 @@ AudioSource:
   m_GameObject: {fileID: 1573511626}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: c0f721a6e813e6d4c96ab23701a201dd,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1732de7d9dbdb2145910bebfcf858cc5, type: 3}
-  m_PlayOnAwake: 0
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 185
+  Priority: 60
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

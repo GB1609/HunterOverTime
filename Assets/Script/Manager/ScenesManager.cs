@@ -33,6 +33,7 @@ public class ScenesManager : MonoBehaviour, GameManager
 
     private IEnumerator FadeAndSwitchScenes(string sceneName)
     {
+        Managers.Audio.PlayTransitionSound();
         yield return StartCoroutine(Fade(1f));
 
         yield return SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
@@ -44,35 +45,18 @@ public class ScenesManager : MonoBehaviour, GameManager
 
     private IEnumerator LoadSceneAndSetActive(string sceneName)
     {
+        Managers.Audio.StopMusic();
         yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
-        // switch (sceneName)
-        // {
-        // 	case "BeginScene":
-        // 		Managers.Audio.PlayMenuMusic();
-        // 		break;
-        // 	case "Hub":
-        // 		Managers.Audio.PlayHubMusic();
-        // 		Managers.Save.Save();
-        // 		break;
-        // 	case "Arena":
-        //               Managers.Audio.PlayArenaMusic();
-        //               Managers.Save.Save();
-        // 		break;
-        //           case "Catacomb":
-        //               Managers.Audio.PlayCatacombMusic();
-        //               Managers.Save.Save();
-        //               break;
-        //           case "Finale":
-        //               Managers.Audio.StopMusic();
-        //               break;
-        //           case "Tutorial":
-        //               Managers.Audio.PlayTutorialMusic();
-        //               break;
-        //           default:
-        // 		Managers.Audio.PlayMenuMusic();
-        // 		break;
-        // }
+        switch (sceneName)
+        {
+            case "BeginScene":
+                Managers.Audio.PlayBeginSceneMusic();
+                break;
+            default:
+                Managers.Audio.PlayBeginSceneMusic();
+                break;
+        }
     }
 
     private IEnumerator Fade(float finalAlpha)
@@ -95,5 +79,4 @@ public class ScenesManager : MonoBehaviour, GameManager
 
         faderCanvasGroup.blocksRaycasts = false;
     }
-
 }

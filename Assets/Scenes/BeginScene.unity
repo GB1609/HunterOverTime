@@ -464,7 +464,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8120058792999595881}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8120058792999595882}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9950abd3f3db658458d332008f42c2ea, type: 3}
@@ -1310,7 +1310,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 3.6899e-41, z: 0, w: -1}
+  m_BoundingSphereOverride: {x: -1, y: 100, z: 25, w: 100}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -8102,3 +8102,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 587edde14328dcb4f85f9b4e6acd6bfa, type: 3}
+--- !u!1 &8120058792999595882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8120058792980990899, guid: 587edde14328dcb4f85f9b4e6acd6bfa,
+    type: 3}
+  m_PrefabInstance: {fileID: 8120058792999595881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &8120058792999595883
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120058792999595882}
+  m_Enabled: 1

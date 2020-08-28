@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Cursor = UnityEngine.WSA.Cursor;
 
 public class PlayerCameraManager : MonoBehaviour
 {

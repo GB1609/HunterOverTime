@@ -1201,6 +1201,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 6793862249641032794, guid: ac1491a5caf4ea34a9c718d783a444c3,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 567039919}
     - target: {fileID: 8827723257498201716, guid: ac1491a5caf4ea34a9c718d783a444c3,
         type: 3}
       propertyPath: m_StaticEditorFlags

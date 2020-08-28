@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Script
@@ -18,6 +17,7 @@ namespace Script
 
         void Start()
         {
+            Screen.lockCursor = true;
             _swim = false;
             _onBoat = false;
             animator.SetFloat(MovementParameterEnum.WALK, MovementValuesEnum.IDLE);

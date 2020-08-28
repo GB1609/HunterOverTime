@@ -20,7 +20,6 @@ public class Managers : MonoBehaviour
             .FullScreenWindow);
         QualitySettings.SetQualityLevel(3);
         QualitySettings.masterTextureLimit = 3;
-        Debug.Log(QualitySettings.names[0]+"               "+QualitySettings.names[QualitySettings.names.Length-1]);
     }
 
     void Awake()

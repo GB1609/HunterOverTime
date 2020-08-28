@@ -1,55 +1,69 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
-using System;
+using UnityEngine.Serialization;
 
-public class AudioManager : MonoBehaviour, GameManager {
+public class AudioManager : MonoBehaviour, GameManager
+{
     public ManagerStatus status { get; private set; }
 
-	[SerializeField] private AudioMixer masterMixer;
-	[SerializeField] private AudioSource backgroundMusic;
-	[SerializeField] private string menuBGMusic;
+    [SerializeField] private AudioMixer masterMixer;
+    [SerializeField] private AudioSource backgroundMusic;
+    [SerializeField] public string transitionSound;
 
-    public AudioClip[] yells;
+    [FormerlySerializedAs("menuBGMusic")] [SerializeField]
+    public string menuBgMusic;
 
-    //TODO: Aggiungere qui dentro le varie musiche
+    [FormerlySerializedAs("medievalBGMusic")] [SerializeField]
+    public string medievalBgMusic;
 
-    public void Start() {
-		UpdateVolumes();
-	}
+    [FormerlySerializedAs("mayaBGMusic")] [SerializeField]
+    public string mayaBgMusic;
 
-    public void Startup() {
-        Debug.Log("Audio manager starting...");
-		UpdateVolumes();
+    private AudioClip _transitionAudioClip;
+    private AudioClip _menuAudioClip;
+    private AudioClip _medievalAudioClip;
+    private AudioClip _mayaAudioClip;
+
+    public void Startup()
+    {
+        UpdateVolumes();
         status = ManagerStatus.Started;
+        _menuAudioClip = Resources.Load<AudioClip>(menuBgMusic);
+        Debug.Log("length=" + _mayaAudioClip.length);
+        _transitionAudioClip = (AudioClip) Resources.Load(transitionSound);
+        _medievalAudioClip = (AudioClip) Resources.Load(medievalBgMusic);
+        _mayaAudioClip = (AudioClip) Resources.Load(mayaBgMusic);
     }
 
-	public void UpdateSoundFXVolume() {
-		masterMixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
-	}
+    public void UpdateMusicVolume()
+    {
+        masterMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
+    }
 
-	public void UpdateMusicVolume() {
-		masterMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
-	}
+    public void UpdateVolumes()
+    {
+        UpdateMusicVolume();
+    }
 
-	public void UpdateVolumes() {
-		UpdateSoundFXVolume();
-		UpdateMusicVolume();
-	}
+    public void PlayBeginSceneMusic()
+    {
+        Debug.Log("entro");
+        PlayMusic(_menuAudioClip);
+    }
 
-	public void PlayBeginSceneMusic() {
-		PlayMusic((AudioClip)Resources.Load("Sounds/"+menuBGMusic));
-	}
+    public void PlayTransitionSound()
+    {
+        PlayMusic(_transitionAudioClip);
+    }
 
-    private void PlayMusic(AudioClip clip) {
-		backgroundMusic.clip = clip;
-		backgroundMusic.Play();
-	}
-	public void StopMusic() {
-		backgroundMusic.Stop();
-	}
+    private void PlayMusic(AudioClip clip)
+    {
+        backgroundMusic.clip = clip;
+        backgroundMusic.Play();
+    }
 
-
-
+    public void StopMusic()
+    {
+        backgroundMusic.Stop();
+    }
 }
