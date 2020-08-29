@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour, GameManager
 
     public void Startup()
     {
-        PlayerPrefs.SetFloat("MusicVolume", -36.85f);
+        PlayerPrefs.SetFloat("MusicVolume", 0f);
         UpdateMusicVolume();
         _menuAudioClip = Resources.Load<AudioClip>(menuBgMusic);
         _transitionAudioClip = (AudioClip) Resources.Load(transitionSound);
@@ -38,7 +38,6 @@ public class AudioManager : MonoBehaviour, GameManager
 
     public void UpdateMusicVolume()
     {
-        Debug.Log("NEW AUDIO=" + PlayerPrefs.GetFloat("MusicVolume"));
         masterMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
     }
 

@@ -10,20 +10,17 @@ public class Managers : MonoBehaviour
     public static ScenesManager Scene { get; private set; }
     public static SaveManager Save { get; private set; }
     public static AudioManager Audio { get; private set; }
+    public const string QualityLevelKey = "QualityLevel";
 
 
     private List<GameManager> _startSequence;
 
-    private void Start()
-    {
-        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode
-            .FullScreenWindow);
-        QualitySettings.SetQualityLevel(3);
-        QualitySettings.masterTextureLimit = 3;
-    }
 
     void Awake()
     {
+        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode
+            .FullScreenWindow);
+        PlayerPrefs.SetInt(QualityLevelKey,QualitySettings.names.Length - 1);
         Scene = GetComponent<ScenesManager>();
         Save = GetComponent<SaveManager>();
         Audio = GetComponent<AudioManager>();

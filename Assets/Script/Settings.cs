@@ -15,7 +15,6 @@ public class Settings : MonoBehaviour
     public GameObject musicSlider;
 
 
-    private const string QualityLevelKey = "QualityLevel";
     private const string ResolutionWidthKey = "ScreenResolutionWidth";
     private const string ResolutionHeightKey = "ScreenResolutionHeight";
     private const string FullScreenKey = "Fullscreen";
@@ -23,16 +22,14 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
-        musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
         _resolutions = Screen.resolutions;
-        int qualityIndex = PlayerPrefs.GetInt(QualityLevelKey, QualitySettings.GetQualityLevel());
-        SetQualityLevel(qualityIndex);
         SetFullscreen(true);
         int val = convertResolution(new int[]
             {_resolutions[_resolutions.Length - 1].width, _resolutions[_resolutions.Length - 1].height});
         resolutionDropdown.value = val;
         int[] r = convertResolution(val);
         SetResolution(r[0], r[1]);
+        musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
     }
 
     public void SetQualityLevel(float index)
@@ -43,11 +40,8 @@ public class Settings : MonoBehaviour
 
     public void SetQualityLevel(int index)
     {
-        if (QualitySettings.GetQualityLevel() != index)
-            if (index > QualitySettings.GetQualityLevel())
-                QualitySettings.IncreaseLevel(true);
-            else
-                QualitySettings.IncreaseLevel(true);
+        PlayerPrefs.SetInt(Managers.QualityLevelKey, index);
+        QualitySettings.SetQualityLevel(index);
     }
 
     public void SetResolution(int index)
@@ -121,5 +115,10 @@ public class Settings : MonoBehaviour
     public void SetAudioLevel(float vl)
     {
         Managers.Audio.ChangeVolume(musicSlider.GetComponent<Slider>().value);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
