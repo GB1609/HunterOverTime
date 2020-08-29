@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
 
@@ -26,22 +27,19 @@ public class AudioManager : MonoBehaviour, GameManager
 
     public void Startup()
     {
-        UpdateVolumes();
-        status = ManagerStatus.Started;
+        PlayerPrefs.SetFloat("MusicVolume", -36.85f);
+        UpdateMusicVolume();
         _menuAudioClip = Resources.Load<AudioClip>(menuBgMusic);
         _transitionAudioClip = (AudioClip) Resources.Load(transitionSound);
         _medievalAudioClip = (AudioClip) Resources.Load(medievalBgMusic);
         _mayaAudioClip = (AudioClip) Resources.Load(mayaBgMusic);
+        status = ManagerStatus.Started;
     }
 
     public void UpdateMusicVolume()
     {
+        Debug.Log("NEW AUDIO=" + PlayerPrefs.GetFloat("MusicVolume"));
         masterMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
-    }
-
-    public void UpdateVolumes()
-    {
-        UpdateMusicVolume();
     }
 
     public void PlayBeginSceneMusic()
@@ -64,4 +62,11 @@ public class AudioManager : MonoBehaviour, GameManager
     {
         backgroundMusic.Stop();
     }
+
+    public void ChangeVolume(float value)
+    {
+        PlayerPrefs.SetFloat("MusicVolume", value);
+        Managers.Audio.UpdateMusicVolume();
+    }
+
 }

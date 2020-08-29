@@ -1310,7 +1310,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 3.8e-42, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 4.1686e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3154,6 +3154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3145db776c1d0864f8ae82694a98d306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 3269570531272939381}
+  musicSlider: {fileID: 3269570530961905221}
 --- !u!222 &3269570530457207780
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4312,15 +4314,15 @@ MonoBehaviour:
   m_FillRect: {fileID: 3269570530457207786}
   m_HandleRect: {fileID: 3269570531663729380}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0.2
+  m_MinValue: -80
+  m_MaxValue: 20
+  m_WholeNumbers: 1
+  m_Value: 14.4
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: set_volume
+      - m_Target: {fileID: 3269570530288010831}
+        m_MethodName: SetAudioLevel
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 #if UNITY_POST_PROCESSING_STACK_V2
@@ -8,27 +9,31 @@ using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
-    public Dropdown _resolutionDropdown;
-    private const string QUALITY_LEVEL_KEY = "QualityLevel";
-    private const string RESOLUTION_WIDTH_KEY = "ScreenResolutionWidth";
-    private const string RESOLUTION_HEIGHT_KEY = "ScreenResolutionHeight";
-    private const string FULL_SCREEN_KEY = "Fullscreen";
-    private Resolution[] resolutions;
+    [FormerlySerializedAs("_resolutionDropdown")]
+    public Dropdown resolutionDropdown;
+
+    public GameObject musicSlider;
+
+
+    private const string QualityLevelKey = "QualityLevel";
+    private const string ResolutionWidthKey = "ScreenResolutionWidth";
+    private const string ResolutionHeightKey = "ScreenResolutionHeight";
+    private const string FullScreenKey = "Fullscreen";
+    private Resolution[] _resolutions;
 
     private void Start()
     {
-        resolutions = Screen.resolutions;
-        int qualityIndex = PlayerPrefs.GetInt(QUALITY_LEVEL_KEY, QualitySettings.GetQualityLevel());
+        musicSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat("MusicVolume");
+        _resolutions = Screen.resolutions;
+        int qualityIndex = PlayerPrefs.GetInt(QualityLevelKey, QualitySettings.GetQualityLevel());
         SetQualityLevel(qualityIndex);
         SetFullscreen(true);
         int val = convertResolution(new int[]
-            {resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height});
-        _resolutionDropdown.value = val;
+            {_resolutions[_resolutions.Length - 1].width, _resolutions[_resolutions.Length - 1].height});
+        resolutionDropdown.value = val;
         int[] r = convertResolution(val);
         SetResolution(r[0], r[1]);
     }
-
-    #region Quality
 
     public void SetQualityLevel(float index)
     {
@@ -45,10 +50,6 @@ public class Settings : MonoBehaviour
                 QualitySettings.IncreaseLevel(true);
     }
 
-    #endregion
-
-    #region Resolution
-
     public void SetResolution(int index)
     {
         var vl = convertResolution(index);
@@ -58,44 +59,19 @@ public class Settings : MonoBehaviour
     public void SetResolution(int width, int height)
     {
         Screen.SetResolution(width, height, Screen.fullScreen);
-        PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, width);
-        PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, height);
-    }
-
-    #endregion
-
-    #region Fullscreen
-
-    public bool IsFullscreen
-    {
-        get { return Screen.fullScreen; }
+        PlayerPrefs.SetInt(ResolutionWidthKey, width);
+        PlayerPrefs.SetInt(ResolutionHeightKey, height);
     }
 
     public void SetFullscreen(bool fullScreen)
     {
         Screen.fullScreen = fullScreen;
-        PlayerPrefs.SetInt(FULL_SCREEN_KEY, BoolToInt(fullScreen));
+        PlayerPrefs.SetInt(FullScreenKey, BoolToInt(fullScreen));
     }
-
-    #endregion
-
-    #region TextureQuality
-
-    #endregion
 
     private static int BoolToInt(bool value)
     {
         return value ? 1 : 0;
-    }
-
-    private static bool IntToBool(int value)
-    {
-        return value != 0;
-    }
-
-    public void SetTextureQuality(int textureLimit)
-    {
-        QualitySettings.masterTextureLimit = textureLimit;
     }
 
     public int[] convertResolution(int vl)
@@ -140,5 +116,10 @@ public class Settings : MonoBehaviour
 
                 return toReturn;
         }
+    }
+
+    public void SetAudioLevel(float vl)
+    {
+        Managers.Audio.ChangeVolume(musicSlider.GetComponent<Slider>().value);
     }
 }
