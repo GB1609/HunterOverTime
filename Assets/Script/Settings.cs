@@ -1,31 +1,31 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
+
 #if UNITY_POST_PROCESSING_STACK_V2
-using UnityEngine.Rendering.PostProcessing;
 
 #endif
 
 public class Settings : MonoBehaviour
 {
+    public Dropdown _resolutionDropdown;
     private const string QUALITY_LEVEL_KEY = "QualityLevel";
     private const string RESOLUTION_WIDTH_KEY = "ScreenResolutionWidth";
     private const string RESOLUTION_HEIGHT_KEY = "ScreenResolutionHeight";
     private const string FULL_SCREEN_KEY = "Fullscreen";
     private Resolution[] resolutions;
-    private int qualties;
 
     private void Start()
     {
         resolutions = Screen.resolutions;
-        qualties = QualitySettings.names.Length / 4;
         int qualityIndex = PlayerPrefs.GetInt(QUALITY_LEVEL_KEY, QualitySettings.GetQualityLevel());
         SetQualityLevel(qualityIndex);
-        PlayerPrefs.GetInt(RESOLUTION_WIDTH_KEY, Screen.currentResolution.width);
-        PlayerPrefs.GetInt(RESOLUTION_HEIGHT_KEY, Screen.currentResolution.height);
         SetFullscreen(true);
-        SetTextureQuality(3);
-        Resolution r = resolutions[resolutions.Length - 1];
-        SetResolution(r.width, r.height);
-        QualitySettings.SetQualityLevel(0);
+        int val = convertResolution(new int[]
+            {resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height});
+        _resolutionDropdown.value = val;
+        int[] r = convertResolution(val);
+        SetResolution(r[0], r[1]);
     }
 
     #region Quality
@@ -33,21 +33,16 @@ public class Settings : MonoBehaviour
     public void SetQualityLevel(float index)
     {
         int ind = Mathf.RoundToInt(index);
-        if (QualitySettings.GetQualityLevel() != ind)
-            if (QualitySettings.GetQualityLevel() != ind)
-                if (index > QualitySettings.GetQualityLevel())
-                    QualitySettings.IncreaseLevel();
-                else
-                    QualitySettings.DecreaseLevel();
+        SetQualityLevel(ind);
     }
 
     public void SetQualityLevel(int index)
     {
         if (QualitySettings.GetQualityLevel() != index)
             if (index > QualitySettings.GetQualityLevel())
-                QualitySettings.IncreaseLevel();
+                QualitySettings.IncreaseLevel(true);
             else
-                QualitySettings.DecreaseLevel();
+                QualitySettings.IncreaseLevel(true);
     }
 
     #endregion
@@ -62,38 +57,9 @@ public class Settings : MonoBehaviour
 
     public void SetResolution(int width, int height)
     {
-        if (IsStandalone && Screen.fullScreen)
-        {
-            Screen.SetResolution(width, height, Screen.fullScreen);
-            PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, width);
-            PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, height);
-        }
-    }
-
-    public void IncreaseResolution()
-    {
-        for (int i = 0; i < Screen.resolutions.Length; i++)
-        {
-            Resolution resolution = Screen.resolutions[i];
-            if (resolution.width > Screen.currentResolution.width)
-            {
-                SetResolution(i);
-                break;
-            }
-        }
-    }
-
-    public void DecreaseResolution()
-    {
-        for (int i = 0; i < Screen.resolutions.Length; i++)
-        {
-            Resolution resolution = Screen.resolutions[i];
-            if (resolution.width == Screen.currentResolution.width && i > 0)
-            {
-                SetResolution(i - 1);
-                break;
-            }
-        }
+        Screen.SetResolution(width, height, Screen.fullScreen);
+        PlayerPrefs.SetInt(RESOLUTION_WIDTH_KEY, width);
+        PlayerPrefs.SetInt(RESOLUTION_HEIGHT_KEY, height);
     }
 
     #endregion
@@ -116,89 +82,6 @@ public class Settings : MonoBehaviour
     #region TextureQuality
 
     #endregion
-
-    public void SetEffectAntialiasing(bool state)
-    {
-#if UNITY_POST_PROCESSING_STACK_V2
-        PostProcessLayer layer = Camera.main.GetComponent<PostProcessLayer>();
-        if (layer == null)
-        {
-            return;
-        }
-
-        if (state)
-        {
-            layer.antialiasingMode = PostProcessLayer.Antialiasing.TemporalAntialiasing;
-        }
-        else
-        {
-            layer.antialiasingMode = PostProcessLayer.Antialiasing.None;
-        }
-#endif
-    }
-
-    public void SetEffectBloom(bool state)
-    {
-#if UNITY_POST_PROCESSING_STACK_V2
-        PostProcessVolume volume = Camera.main.GetComponent<PostProcessVolume>();
-        if (volume == null)
-        {
-            return;
-        }
-
-        Bloom bloom;
-        if (volume.profile.TryGetSettings<Bloom>(out bloom))
-        {
-            bloom.active = state;
-        }
-#endif
-    }
-
-    public void SetEffectVignette(bool state)
-    {
-#if UNITY_POST_PROCESSING_STACK_V2
-        PostProcessVolume volume = Camera.main.GetComponent<PostProcessVolume>();
-        if (volume == null)
-        {
-            return;
-        }
-
-        Vignette vignette;
-        if (volume.profile.TryGetSettings<Vignette>(out vignette))
-        {
-            vignette.active = state;
-        }
-#endif
-    }
-
-    public void SetEffectAmbient(bool state)
-    {
-#if UNITY_POST_PROCESSING_STACK_V2
-        PostProcessVolume volume = Camera.main.GetComponent<PostProcessVolume>();
-        if (volume == null)
-        {
-            return;
-        }
-
-        AmbientOcclusion ambient;
-        if (volume.profile.TryGetSettings<AmbientOcclusion>(out ambient))
-        {
-            ambient.active = state;
-        }
-#endif
-    }
-
-    public bool IsStandalone
-    {
-        get
-        {
-#if UNITY_STANDALONE
-            return true;
-#else
-				return false;
-#endif
-        }
-    }
 
     private static int BoolToInt(bool value)
     {
@@ -225,6 +108,37 @@ public class Settings : MonoBehaviour
             case 3: return new int[] {1920, 1080};
             case 4: return new int[] {2560, 1440};
             default: return new int[] { };
+        }
+    }
+
+    public int convertResolution(int[] vl)
+    {
+        int[] res = {800, 1024, 1280, 1920, 2560};
+        switch (vl[0])
+        {
+            case 800:
+                return 0;
+            case 1024:
+                return 1;
+            case 1280:
+                return 2;
+            case 1920:
+                return 3;
+            case 2560:
+                return 4;
+            default:
+                var min = 2560;
+                var toReturn = 0;
+                for (int i = 0; i < res.Length; i++)
+                {
+                    if (Math.Abs(res[i] - vl[0]) < min)
+                    {
+                        min = Math.Abs(res[i] - vl[0]);
+                        toReturn = i;
+                    }
+                }
+
+                return toReturn;
         }
     }
 }

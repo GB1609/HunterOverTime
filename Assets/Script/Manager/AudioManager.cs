@@ -29,7 +29,6 @@ public class AudioManager : MonoBehaviour, GameManager
         UpdateVolumes();
         status = ManagerStatus.Started;
         _menuAudioClip = Resources.Load<AudioClip>(menuBgMusic);
-        Debug.Log("length=" + _mayaAudioClip.length);
         _transitionAudioClip = (AudioClip) Resources.Load(transitionSound);
         _medievalAudioClip = (AudioClip) Resources.Load(medievalBgMusic);
         _mayaAudioClip = (AudioClip) Resources.Load(mayaBgMusic);
@@ -47,7 +46,6 @@ public class AudioManager : MonoBehaviour, GameManager
 
     public void PlayBeginSceneMusic()
     {
-        Debug.Log("entro");
         PlayMusic(_menuAudioClip);
     }
 
