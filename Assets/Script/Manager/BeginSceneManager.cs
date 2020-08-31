@@ -6,6 +6,7 @@ public class BeginSceneManager : MonoBehaviour
 {
     public Camera camera;
     public int speed;
+    public ParticleSystem particleSystem;
 
     public Vector3 positionOption;
     public Quaternion rotationOption;
@@ -39,14 +40,14 @@ public class BeginSceneManager : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         sceneToLoad = "MedievalScene";
-        if (other.gameObject.CompareTag("Teleporter"))
+        if (particleSystem.gameObject.activeSelf && other.gameObject.CompareTag("Teleporter"))
             switch (sceneToLoad)
             {
                 case "MedievalScene":
-                    goMedieval();
+                    GOMedieval();
                     break;
                 case "MayaScene":
-                    goMaya();
+                    GOMaya();
                     break;
                 default:
                     Debug.Log("No Scene Selected");
@@ -55,21 +56,21 @@ public class BeginSceneManager : MonoBehaviour
 
         else if (other.gameObject.CompareTag("OptionButton"))
         {
-            change();
+            changeView();
             transform.position = positionOption;
             transform.rotation = rotationOption;
             inSettings = true;
         }
         else if (other.gameObject.CompareTag("SelectMissionButton"))
         {
-            change();
+            changeView();
             transform.position = positionSelect;
             transform.rotation = rotationSelect;
             inSelection = true;
         }
     }
 
-    private void change()
+    private void changeView()
     {
         GetComponent<MouseLook>().enabled = false;
         tempPosition = transform.position;
@@ -92,14 +93,19 @@ public class BeginSceneManager : MonoBehaviour
         }
     }
 
-    private void goMedieval()
+    private void GOMedieval()
     {
         Managers.Scene.FadeAndLoadScene("MedievalScene");
     }
 
-    private void goMaya()
+    private void GOMaya()
     {
         Managers.Scene.FadeAndLoadScene("MayaScene");
+    }
+
+    private void ActiveTeleporter()
+    {
+        particleSystem.gameObject.SetActive(true);
     }
 
     public void ExitSettings()

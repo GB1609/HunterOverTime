@@ -10,6 +10,8 @@ TagManager:
   - PlayerCamera
   - OptionButton
   - SelectMissionButton
+  - Claudia
+  - Selectable
   layers:
   - Default
   - TransparentFX
