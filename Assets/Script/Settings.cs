@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     [FormerlySerializedAs("_resolutionDropdown")]
-    public Dropdown resolutionDropdown;
+    public TMPro.TMP_Dropdown resolutionDropdown;
 
     public GameObject musicSlider;
 

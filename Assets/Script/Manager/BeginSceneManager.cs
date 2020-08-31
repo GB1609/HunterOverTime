@@ -28,6 +28,7 @@ public class BeginSceneManager : MonoBehaviour
         inSettings = inSelection = false;
         sceneToLoad = "";
         Cursor.lockState = CursorLockMode.Locked;
+        particleSystem.gameObject.SetActive(false);
     }
 
 
@@ -37,9 +38,14 @@ public class BeginSceneManager : MonoBehaviour
         CameraMove();
     }
 
+    public void setMission(string mission)
+    {
+        sceneToLoad = mission;
+        particleSystem.gameObject.SetActive(true);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
-        sceneToLoad = "MedievalScene";
         if (particleSystem.gameObject.activeSelf && other.gameObject.CompareTag("Teleporter"))
             switch (sceneToLoad)
             {
