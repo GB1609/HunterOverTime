@@ -7,11 +7,16 @@ using UnityEngine;
 [RequireComponent(typeof(AudioManager))]
 public class Managers : MonoBehaviour
 {
+    public static bool PAUSE;
     public static ScenesManager Scene { get; private set; }
     public static SaveManager Save { get; private set; }
     public static AudioManager Audio { get; private set; }
     public const string QualityLevelKey = "QualityLevel";
 
+    private void Start()
+    {
+        PAUSE = false;
+    }
 
     private List<GameManager> _startSequence;
 
@@ -20,7 +25,7 @@ public class Managers : MonoBehaviour
     {
         Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, FullScreenMode
             .FullScreenWindow);
-        PlayerPrefs.SetInt(QualityLevelKey,QualitySettings.names.Length - 1);
+        PlayerPrefs.SetInt(QualityLevelKey, QualitySettings.names.Length - 1);
         Scene = GetComponent<ScenesManager>();
         Save = GetComponent<SaveManager>();
         Audio = GetComponent<AudioManager>();
@@ -59,5 +64,23 @@ public class Managers : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public static void Pause()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
+        PAUSE = true;
+        AudioListener.pause = true;
+        Time.timeScale = 0;
+    }
+
+    public static void Resume()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
+        PAUSE = false;
+        AudioListener.pause = false;
+        Time.timeScale = 1;
     }
 }

@@ -1,28 +1,30 @@
 ﻿using UnityEngine;
 
-public class PlayerCameraManager : MonoBehaviour
+namespace Script.Camera
 {
-
-    public Transform cameraTransform;
-
-    public GameObject crosshair;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerCameraManager : MonoBehaviour
     {
-        crosshair = GameObject.FindGameObjectWithTag("CrossHair");
-        crosshair.SetActive(false);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
+        public Transform cameraTransform;
+
+        public GameObject crosshair;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            crosshair.SetActive(!crosshair.activeSelf);
-            cameraTransform.position = (crosshair.activeSelf)
-                ? cameraTransform.position += cameraTransform.forward * 5
-                : cameraTransform.position -= cameraTransform.forward * 5;
+            crosshair.SetActive(false);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                crosshair.SetActive(!crosshair.activeSelf);
+                cameraTransform.position = (crosshair.activeSelf)
+                    ? cameraTransform.position += cameraTransform.forward * 5
+                    : cameraTransform.position -= cameraTransform.forward * 5;
+            }
         }
     }
 }

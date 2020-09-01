@@ -41,7 +41,7 @@ public class BeginSceneManager : MonoBehaviour
     public void setMission(string mission)
     {
         sceneToLoad = mission;
-        particleSystem.gameObject.SetActive(true);
+        ActiveTeleporter();
     }
 
     private void OnCollisionEnter(Collision other)

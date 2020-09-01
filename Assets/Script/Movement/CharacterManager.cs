@@ -1,25 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Script
+namespace Script.Movement
 {
     public class CharacterManager : MonoBehaviour
     {
         public Animator animator;
 
-        public Transform playerTransform;
         public Rigidbody rigidbodyPlayer;
-        public new Camera camera;
+        public new UnityEngine.Camera camera;
         public int speed;
         public bool boosted;
-        private bool _onBoat;
         private bool _swim;
 
         void Start()
         {
-            Screen.lockCursor = true;
             _swim = false;
-            _onBoat = false;
             animator.SetFloat(MovementParameterEnum.WALK, MovementValuesEnum.IDLE);
             animator.SetFloat(MovementParameterEnum.RUN, MovementValuesEnum.IDLE);
             animator.SetFloat(MovementParameterEnum.CROUCH, MovementValuesEnum.IDLE);
@@ -35,9 +31,9 @@ namespace Script
                 Application.Quit();
             }
 
-            if (!_onBoat)
+            if (!Managers.PAUSE)
             {
-                if (rigidbodyPlayer.velocity.y > 3)
+                if (rigidbodyPlayer.velocity.y > 1)
                     animator.SetBool(MovementParameterEnum.FALL, true);
                 else
                 {
