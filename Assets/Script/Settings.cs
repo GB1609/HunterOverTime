@@ -80,7 +80,6 @@ public class Settings : MonoBehaviour
             default: return new int[] { };
         }
     }
-
     public int convertResolution(int[] vl)
     {
         int[] res = {800, 1024, 1280, 1920, 2560};
