@@ -114,7 +114,7 @@ public class Settings : MonoBehaviour
 
     public void SetAudioLevel(float vl)
     {
-                                                                                                                                                                                                                                                                                                            Managers.Audio.ChangeVolume(musicSlider.GetComponent<Slider>().value);
+        Managers.Audio.ChangeVolume(musicSlider.GetComponent<Slider>().value);
     }
 
     public void Exit()

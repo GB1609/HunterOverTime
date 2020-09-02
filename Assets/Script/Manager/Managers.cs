@@ -68,18 +68,18 @@ public class Managers : MonoBehaviour
 
     public static void Pause()
     {
+        PAUSE = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
-        PAUSE = true;
         AudioListener.pause = true;
         Time.timeScale = 0;
     }
 
     public static void Resume()
     {
+        PAUSE = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Locked;
-        PAUSE = false;
         AudioListener.pause = false;
         Time.timeScale = 1;
     }
