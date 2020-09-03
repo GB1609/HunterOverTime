@@ -61,6 +61,8 @@ public static class Utils
                     return Keyboard.current.spaceKey.wasPressedThisFrame;
                 case KeyCode.LeftShift:
                     return Keyboard.current.leftShiftKey.wasPressedThisFrame;
+                case KeyCode.Mouse0:
+                    return Mouse.current.leftButton.wasPressedThisFrame;
                 default: return false;
             }
         }

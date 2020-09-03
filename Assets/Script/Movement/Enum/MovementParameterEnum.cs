@@ -10,5 +10,5 @@ public class MovementParameterEnum
     public static readonly string FALL = "Fall";
     public static readonly string PUNCH = "Punch";
     public static readonly string DRAW_SWORD = "DrawSword";
-    public static readonly string ARMED = "Armed";
+    public static readonly string ATTACK = "Attack";
 }
