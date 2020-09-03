@@ -212,8 +212,8 @@ MonoBehaviour:
   backgroundMusic: {fileID: 1573511627}
   transitionSound: Sounds/Transition
   menuBgMusic: Sounds/MenuAudio
-  medievalBgMusic: Sounds/MenuAudio
-  mayaBgMusic: Sounds/MenuAudio
+  medievalBgMusic: Sounds/MedievalAudio
+  mayaBgMusic: Sounds/MayaAudio
 --- !u!1 &913607616
 GameObject:
   m_ObjectHideFlags: 0

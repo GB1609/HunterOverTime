@@ -53,6 +53,12 @@ public class ScenesManager : MonoBehaviour, GameManager
             case "BeginScene":
                 Managers.Audio.PlayBeginSceneMusic();
                 break;
+            case "MedievalScene":
+                Managers.Audio.PlayMedievalMusic();
+                break;
+            case "MayaScene":
+                Managers.Audio.PlayMayaMusic();
+                break;
             default:
                 Managers.Audio.PlayBeginSceneMusic();
                 break;

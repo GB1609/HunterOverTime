@@ -263,9 +263,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'More
-
-    Incoming
+  m_text: 'In Arrivo...
 
 '
   m_isRightToLeft: 0
@@ -342,12 +340,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 86778804}
-    characterCount: 14
+    characterCount: 13
     spriteCount: 0
     spaceCount: 2
     wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1193,7 +1191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Recovery of the\n sacred sword"
+  m_text: '"La Spada Sacra"'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cafb642e5ac5d4e4c87ce09f747a2fa9, type: 2}
   m_sharedMaterial: {fileID: 660766316133303503, guid: cafb642e5ac5d4e4c87ce09f747a2fa9,
@@ -1268,12 +1266,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 571046809}
-    characterCount: 29
+    characterCount: 16
     spriteCount: 0
-    spaceCount: 5
-    wordCount: 5
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1823,7 +1821,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.82e-43, y: 4.3435e-41, z: 0, w: -1}
+  m_BoundingSphereOverride: {x: 1.015e-42, y: 4.5298e-41, z: 0, w: -1}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2156,7 +2154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   options:
   - title: 
-    text: Selected "Maya Scene"
+    text: Missione "Maya Scene" selezionata
     color: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300000, guid: 3fccbea4b15adee4e98fc59b09952d10, type: 3}
     delay: 0.2
@@ -2394,7 +2392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   options:
   - title: 
-    text: Selected "Recovery of the Sacred Sword mission"
+    text: Missione "La Spada Sacra" selezionata
     color: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300000, guid: 3fccbea4b15adee4e98fc59b09952d10, type: 3}
     delay: 0.2
@@ -2457,7 +2455,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Mission
+  m_text: Seleziona Missione
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cafb642e5ac5d4e4c87ce09f747a2fa9, type: 2}
   m_sharedMaterial: {fileID: 660766316133303503, guid: cafb642e5ac5d4e4c87ce09f747a2fa9,
@@ -2508,7 +2506,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 10
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_isTextTruncated: 0
@@ -2532,12 +2530,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -0.4157421, w: 0}
   m_textInfo:
     textComponent: {fileID: 2141247009}
-    characterCount: 14
+    characterCount: 18
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2889,6 +2887,38 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228871004185037969, guid: e95b62c946cbafe468d9044585baa36b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: cafb642e5ac5d4e4c87ce09f747a2fa9,
+        type: 2}
+    - target: {fileID: 1228871004185037969, guid: e95b62c946cbafe468d9044585baa36b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 660766316133303503, guid: cafb642e5ac5d4e4c87ce09f747a2fa9,
+        type: 2}
+    - target: {fileID: 1228871004185037969, guid: e95b62c946cbafe468d9044585baa36b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228871004185037969, guid: e95b62c946cbafe468d9044585baa36b,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228871004185037969, guid: e95b62c946cbafe468d9044585baa36b,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228871004185037969, guid: e95b62c946cbafe468d9044585baa36b,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 1228871004199835451, guid: e95b62c946cbafe468d9044585baa36b,
         type: 3}
@@ -3433,6 +3463,23 @@ PrefabInstance:
       propertyPath: instance
       value: 
       objectReference: {fileID: 37785499}
+    - target: {fileID: 5654108311192934612, guid: 17ffb746506cf8c4b8fd4cfc21213221,
+        type: 3}
+      propertyPath: tooltip
+      value: 'Ciao, Sono Claudia.
+
+        Se hai intenzione di giocare bisogna che
+        tu scelga la missione nel pannello alla mia destra.
+
+        In Alternativa,
+        alle tue spalle troverai a disposizione il pannello per la gestione delle
+        impostazioni.
+
+        Avvicinati ad uno di loro per interagirci!
+
+        Una
+        volta selezionata la missione puoi raggiungerla utilizzando il Teleporter!'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ffb746506cf8c4b8fd4cfc21213221, type: 3}
 --- !u!1001 &6181545872968206245
@@ -3442,6 +3489,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 982839285}
     m_Modifications:
+    - target: {fileID: 183646833758187545, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 183646834181510148, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -3465,6 +3517,26 @@ PrefabInstance:
     - target: {fileID: 183646834181510148, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 183646834583782425, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183646834583782425, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183646834583782425, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 183646834875863755, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 183646835238944954, guid: 502d8859d0c25694aa54e8ae8032501c,
@@ -3512,6 +3584,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 183646835473908998, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 183646835677801228, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -3535,6 +3612,16 @@ PrefabInstance:
     - target: {fileID: 183646835677801228, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 183646835790304535, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183646835790304535, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 997506962766955689, guid: 502d8859d0c25694aa54e8ae8032501c,
@@ -3595,6 +3682,31 @@ PrefabInstance:
     - target: {fileID: 1616104023807572777, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685224806021481395, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685224806021481395, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685224806021481395, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685224806365244561, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685224806365244561, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2051210347259353883, guid: 502d8859d0c25694aa54e8ae8032501c,
@@ -3687,6 +3799,63 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3446283689177979445, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Bassa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689279384880, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Grafica
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689283391749, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Media
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689528683477, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Esci
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689528683477, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689529993879, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Alta
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: "Avanti \t\t->\tW\nIndietro \t\t->\tS\nSinistra\t\t->\tA\nDestra\t\t\t->
+        \tD\nSalta\t\t\t->\tSPACE\nCorri\t\t\t->\tSHIFT\nAccovacciati\t\t->\tC\nPrima/terza
+        persona\t->\tV\nApri Mappa\t\t->\tTAB"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 156
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3446283689890295996, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -3711,6 +3880,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689948015228, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Controlli
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689948015228, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690464826258, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Impostazioni
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690464826258, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690904374133, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Controlli
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690904374133, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3446283690952500956, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
@@ -3741,6 +3940,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690952500959, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Sei sicuro di uscire dal gioco?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690952500959, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690952500959, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690952500959, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283690952500959, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283691011549827, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_text
+      value: Esci
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283691011549827, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283691011549827, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283691011549827, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6181545872190628324, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}

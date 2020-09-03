@@ -4,7 +4,6 @@ namespace Script.Camera
 {
     public class PlayerCameraManager : MonoBehaviour
     {
-
         public Transform cameraTransform;
 
         public GameObject crosshair;
@@ -20,10 +19,12 @@ namespace Script.Camera
         {
             if (Input.GetKeyDown(KeyCode.V))
             {
+                var toSum = new Vector3(cameraTransform.forward.x, cameraTransform.forward.y,
+                    cameraTransform.forward.z * 5);
                 crosshair.SetActive(!crosshair.activeSelf);
                 cameraTransform.position = (crosshair.activeSelf)
-                    ? cameraTransform.position += cameraTransform.forward * 5
-                    : cameraTransform.position -= cameraTransform.forward * 5;
+                    ? cameraTransform.position += toSum
+                    : cameraTransform.position -= toSum;
             }
         }
     }

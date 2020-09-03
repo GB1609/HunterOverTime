@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
 
@@ -46,6 +45,16 @@ public class AudioManager : MonoBehaviour, GameManager
         PlayMusic(_menuAudioClip);
     }
 
+    public void PlayMedievalMusic()
+    {
+        PlayMusic(_medievalAudioClip);
+    }
+
+    public void PlayMayaMusic()
+    {
+        PlayMusic(_mayaAudioClip);
+    }
+
     public void PlayTransitionSound()
     {
         PlayMusic(_transitionAudioClip);
@@ -67,5 +76,4 @@ public class AudioManager : MonoBehaviour, GameManager
         PlayerPrefs.SetFloat("MusicVolume", value);
         Managers.Audio.UpdateMusicVolume();
     }
-
 }
