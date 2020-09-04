@@ -12,6 +12,8 @@ TagManager:
   - SelectMissionButton
   - Claudia
   - Selectable
+  - Narration
+  - PlayerSword
   layers:
   - Default
   - TransparentFX
