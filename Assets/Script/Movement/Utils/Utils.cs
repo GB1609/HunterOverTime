@@ -69,7 +69,7 @@ public static class Utils
 
         public static bool animatorIsPlaying(Animator animator)
         {
-            return animator.GetCurrentAnimatorStateInfo(0).length >
+            return animator.GetCurrentAnimatorStateInfo(0).length >=
                    animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
         }
 }

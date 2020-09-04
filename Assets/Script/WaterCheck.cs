@@ -9,13 +9,13 @@ public class WaterCheck : MonoBehaviour
 // Start is called before the first frame update
     void Start()
     {
-        _animator.SetInteger(MovementParameterEnum.SWIM, 0);
+        _animator.SetInteger(MovementParameterEnum.Swim, 0);
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("Player"))
-            _animator.SetInteger(MovementParameterEnum.SWIM, 1);
+            _animator.SetInteger(MovementParameterEnum.Swim, 1);
     }
 
     private void OnTriggerStay(Collider other)
@@ -27,7 +27,7 @@ public class WaterCheck : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Debug.Log("exit");
-            _animator.SetInteger(MovementParameterEnum.SWIM, 2);
+            _animator.SetInteger(MovementParameterEnum.Swim, 2);
         }
     }
 }

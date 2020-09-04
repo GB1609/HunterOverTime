@@ -14,6 +14,8 @@ TagManager:
   - Selectable
   - Narration
   - PlayerSword
+  - Kick
+  - Punch
   layers:
   - Default
   - TransparentFX
