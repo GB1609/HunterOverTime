@@ -77,11 +77,11 @@ namespace Script.Manager
                     if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(3))
                         animator.SetFloat(MovementParameterEnum.Attack, 0);
 
-                    if (_armed && Input.GetMouseButtonDown(0))
+                    if (_armed && Input.GetMouseButton(0))
                         Attack();
-                    else if (Input.GetMouseButtonDown(3) && animator.GetFloat(MovementParameterEnum.Attack) < 1)
+                    else if (Input.GetMouseButton(3) && animator.GetFloat(MovementParameterEnum.Attack) < 1)
                         Defend();
-                    else if (!_swim && Input.GetMouseButtonDown(0) && !_armed)
+                    else if (!_swim && Input.GetMouseButton(0) && !_armed)
                         TakeSword();
                     else if (_armed && Input.GetKeyDown(KeyCode.F))
                         LeaveSword();
@@ -241,7 +241,7 @@ namespace Script.Manager
         private void Defend()
         {
             if (animator.GetFloat(MovementParameterEnum.Attack) > 0) return;
-            animator.SetFloat(MovementParameterEnum.Attack, 6);
+            animator.SetFloat(MovementParameterEnum.Attack, 5);
         }
 
         private void Narration()

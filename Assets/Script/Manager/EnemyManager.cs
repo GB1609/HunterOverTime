@@ -6,6 +6,7 @@ namespace Script.Manager
 {
     public class EnemyManager : MonoBehaviour
     {
+        public ParticleSystem blood;
         public Transform goal;
         private Vector3 _origin;
         private NavMeshAgent _agent;
@@ -70,6 +71,7 @@ namespace Script.Manager
             if (other.gameObject.CompareTag("PlayerSword") || other.gameObject.CompareTag("Punch")
                                                            || other.gameObject.CompareTag("Kick"))
             {
+                blood.Play();
                 _animator.SetFloat(MovementParameterEnum.Attack,0);
                 _animator.SetBool(MovementParameterEnum.Impact, true);
                 life -= 10f;
