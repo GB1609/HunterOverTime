@@ -57,7 +57,7 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
-    m_BakeResolution: 75
+    m_BakeResolution: 55
     m_AtlasSize: 512
     m_AO: 0
     m_AOMaxDistance: 1
@@ -4125,7 +4125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1910749612
 Transform:
   m_ObjectHideFlags: 0
@@ -4134,7 +4134,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910749611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.971911, y: -16.042028, z: 147.20334}
+  m_LocalPosition: {x: 11.72, y: -16.042028, z: 564.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 687216813}
@@ -6602,6 +6602,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -101.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484053794030380085, guid: 20a06ce9dec179a49bc28f01560b1b6b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.1962306
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484053794105584295, guid: 20a06ce9dec179a49bc28f01560b1b6b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a06ce9dec179a49bc28f01560b1b6b, type: 3}

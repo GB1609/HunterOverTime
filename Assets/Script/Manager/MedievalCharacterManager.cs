@@ -1,4 +1,5 @@
-﻿using DevionGames.UIWidgets;
+﻿using System;
+using DevionGames.UIWidgets;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = System.Random;
@@ -72,6 +73,8 @@ namespace Script.Manager
                     healthSlider.value = health;
                     _falling = false;
                 }
+                else if (animator.GetBool(MovementParameterEnum.Impact))
+                    animator.SetBool(MovementParameterEnum.Impact, false);
                 else
                 {
                     if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(3))
@@ -296,6 +299,19 @@ namespace Script.Manager
             {
                 health += 25;
                 Destroy(other.gameObject);
+            }
+        }
+
+        public void Impact(int damage)
+        {
+            if (Math.Abs(animator.GetFloat(MovementParameterEnum.Attack) - 8) > 0.1f)
+            {
+                health -= damage;
+                healthSlider.value = health;
+                Debug.Log("HEALT: " + health);
+                Vector3 b = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z) * -1;
+                transform.position += b * (Time.deltaTime * speed);
+                animator.SetBool(MovementParameterEnum.Impact, true);
             }
         }
     }

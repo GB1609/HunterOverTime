@@ -12,18 +12,18 @@ namespace Script.Manager
         public Transform goal;
         private Vector3 _origin;
         private NavMeshAgent _agent;
-        private Animator _animator;
+        public Animator _animator;
         public Transform playerTransform;
         private bool _onTarget;
         public float life;
         [SerializeField] private float aggression;
         [SerializeField] private float tolerance;
 
-        private AudioSource[] audios;
+        private AudioSource[] _audios;
 
         void Start()
         {
-            audios = GetComponents<AudioSource>();
+            _audios = GetComponents<AudioSource>();
             _onTarget = false;
             _animator = GetComponent<Animator>();
             _agent = GetComponent<NavMeshAgent>();
@@ -46,7 +46,7 @@ namespace Script.Manager
             {
                 if (_onTarget)
                 {
-                    if (Vector3.Distance(transform.position, playerTransform.position) < 2f)
+                    if (Vector3.Distance(transform.position, playerTransform.position) < 3f)
                     {
                         _agent.isStopped = true;
                         _animator.SetFloat(MovementParameterEnum.Walk, MovementValuesEnum.IDLE);
@@ -71,9 +71,9 @@ namespace Script.Manager
                 }
                 else
                 {
-                    if (Vector3.Distance(transform.position, goal.position) < 5f)
+                    if (Vector3.Distance(transform.position, goal.position) < 3f)
                         _agent.destination = _origin;
-                    if (Vector3.Distance(transform.position, _origin) < 5f)
+                    if (Vector3.Distance(transform.position, _origin) < 3f)
                         _agent.destination = goal.position;
                 }
 
@@ -86,14 +86,16 @@ namespace Script.Manager
 
         public void Impact(float damage)
         {
-            if (life > 0)
+            if (life > 0 && Math.Abs(_animator.GetFloat(MovementParameterEnum.Attack) - 8) > 0.1f)
             {
                 blood.Play();
-                audios[1].PlayOneShot(audios[1].clip);
+                _audios[1].PlayOneShot(_audios[1].clip);
                 _animator.SetFloat(MovementParameterEnum.Walk, MovementValuesEnum.IDLE);
                 _animator.SetFloat(MovementParameterEnum.Attack, 0);
                 _animator.SetBool(MovementParameterEnum.Impact, true);
                 life -= damage;
+                Vector3 b = new Vector3(transform.forward.x, 0, transform.forward.z) * -1;
+                transform.position += b * (Time.deltaTime);
             }
         }
 
@@ -101,7 +103,7 @@ namespace Script.Manager
         {
             if (!_animator.GetBool(MovementParameterEnum.Death))
             {
-                audios[0].PlayOneShot(audios[0].clip);
+                _audios[0].PlayOneShot(_audios[0].clip);
                 _agent.isStopped = true;
                 DestroyImmediate(GetComponent<NavMeshAgent>());
                 _animator.SetBool(MovementParameterEnum.Impact, false);
