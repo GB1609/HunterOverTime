@@ -19,8 +19,7 @@ namespace Script.Camera
         {
             if (Input.GetKeyDown(KeyCode.V))
             {
-                var toSum = new Vector3(cameraTransform.forward.x, cameraTransform.forward.y,
-                    cameraTransform.forward.z * 5);
+                var toSum = cameraTransform.forward * 3;
                 crosshair.SetActive(!crosshair.activeSelf);
                 cameraTransform.position = (crosshair.activeSelf)
                     ? cameraTransform.position += toSum

@@ -233,7 +233,7 @@ namespace Script.Manager
 
         private void Attack()
         {
-            var randomAttack = new Random().Next(4) + 1;
+            var randomAttack = new Random().Next(7) + 1;
             if (animator.GetFloat(MovementParameterEnum.Attack) == 0)
                 animator.SetFloat(MovementParameterEnum.Attack, randomAttack);
         }
@@ -241,7 +241,7 @@ namespace Script.Manager
         private void Defend()
         {
             if (animator.GetFloat(MovementParameterEnum.Attack) > 0) return;
-            animator.SetFloat(MovementParameterEnum.Attack, 5);
+            animator.SetFloat(MovementParameterEnum.Attack, 8);
         }
 
         private void Narration()
@@ -290,6 +290,12 @@ namespace Script.Manager
                 Destroy(other.gameObject);
                 if (_stepNarration == 2)
                     notification.AddNotification(0);
+            }
+
+            if (other.gameObject.CompareTag("Selectable") && other.gameObject.name.ToLower().Contains("chest"))
+            {
+                health += 25;
+                Destroy(other.gameObject);
             }
         }
     }

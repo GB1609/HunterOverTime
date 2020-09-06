@@ -17,7 +17,6 @@ namespace Script.Manager
             settings.gameObject.SetActive(false);
             instructions.gameObject.SetActive(true);
             Managers.Pause();
-            Cursor.lockState = CursorLockMode.Confined;
         }
 
         // Update is called once per frame

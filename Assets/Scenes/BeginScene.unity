@@ -1821,7 +1821,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.015e-42, y: 4.5298e-41, z: 0, w: -1}
+  m_BoundingSphereOverride: {x: 0, y: 2.473e-41, z: 0, w: -2.305843e+18}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3834,27 +3834,48 @@ PrefabInstance:
       propertyPath: m_text
       value: "Avanti \t\t->\tW\nIndietro \t\t->\tS\nSinistra\t\t->\tA\nDestra\t\t\t->
         \tD\nSalta\t\t\t->\tSPACE\nCorri\t\t\t->\tSHIFT\nAccovacciati\t\t->\tC\nPrima/terza
-        persona\t->\tV\nApri Mappa\t\t->\tTAB"
+        persona\t->\tV\nApri Mappa\t\t->\tTAB\nAttacca(arma)\t->\tPulsante SX Mouse\nAttacca(pugni)\t->\tPulsante
+        DX Mouse\nInteragisci\t\t->\tE"
       objectReference: {fileID: 0}
     - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 156
+      value: 245
       objectReference: {fileID: 0}
     - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 42
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 30
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3446283689535230972, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 3446283689890295996, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}

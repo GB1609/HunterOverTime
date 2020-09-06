@@ -8,21 +8,20 @@ namespace Script.Indications
     {
         private bool _isActive;
 
-        [SerializeField] private String claudia = "Claudia";
+        [SerializeField] private string claudia = "Claudia";
         [SerializeField] private Animator anim;
 
-        private bool _first;
         private RaycastHit _hit;
 
         public TooltipTrigger tooltip;
-        private static readonly string talk = "talk";
+        private const string Talk = "talk";
 
         private Ray _forwardRay;
 
         private void Start()
         {
             _isActive = false;
-            anim.SetBool(talk, false);
+            anim.SetBool(Talk, false);
         }
 
         private void Update()
@@ -50,7 +49,7 @@ namespace Script.Indications
             if (!_isActive)
             {
                 _isActive = true;
-                anim.SetBool(talk, true);
+                anim.SetBool(Talk, true);
                 tooltip.ShowTooltip();
             }
         }
@@ -60,7 +59,7 @@ namespace Script.Indications
             if (!_isActive)
             {
                 tooltip.CloseTooltip();
-                anim.SetBool(talk, false);
+                anim.SetBool(Talk, false);
             }
         }
     }

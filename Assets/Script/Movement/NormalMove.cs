@@ -36,7 +36,7 @@ public static class NormalMove
         animator.SetBool(MovementParameterEnum.Jump, true);
         Vector3 u = camera.transform.up;
         Vector3 f = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z);
-        int upConstants = 4;
+        int upConstants = 2;
         int fConstants = 2;
         transform.position += u * (upConstants * (Time.deltaTime * speed));
         transform.position += f * (fConstants * (Time.deltaTime * speed));

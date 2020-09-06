@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 using Random = System.Random;
 
@@ -6,6 +7,7 @@ namespace Script.Manager
 {
     public class EnemyManager : MonoBehaviour
     {
+        public int level;
         public ParticleSystem blood;
         public Transform goal;
         private Vector3 _origin;
@@ -13,17 +15,28 @@ namespace Script.Manager
         private Animator _animator;
         public Transform playerTransform;
         private bool _onTarget;
-        [SerializeField] private float life;
+        public float life;
         [SerializeField] private float aggression;
         [SerializeField] private float tolerance;
 
+        private AudioSource[] audios;
+
         void Start()
         {
+            audios = GetComponents<AudioSource>();
             _onTarget = false;
             _animator = GetComponent<Animator>();
-            _animator.SetFloat(MovementParameterEnum.Walk, 3);
             _agent = GetComponent<NavMeshAgent>();
-            _agent.destination = goal.position;
+            if (Math.Abs(goal.transform.position.x - transform.position.x) < 0.1f
+                && Math.Abs(goal.transform.position.y - transform.position.y) < 0.1f
+                && Math.Abs(goal.transform.position.z - transform.position.z) < 0.1f)
+            {
+                _agent.isStopped = true;
+                _animator.SetFloat(MovementParameterEnum.Walk, MovementValuesEnum.IDLE);
+            }
+            else
+                _animator.SetFloat(MovementParameterEnum.Walk, MovementValuesEnum.FORWARD);
+
             _origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         }
 
@@ -35,15 +48,20 @@ namespace Script.Manager
                 {
                     if (Vector3.Distance(transform.position, playerTransform.position) < 2f)
                     {
-                        _agent.destination = transform.position;
+                        _agent.isStopped = true;
+                        _animator.SetFloat(MovementParameterEnum.Walk, MovementValuesEnum.IDLE);
                         if (_animator.GetFloat(MovementParameterEnum.Attack) < 1)
+                            _animator.SetFloat(MovementParameterEnum.Attack, GetAttack());
+                    }
+                    else if (life > 0)
+                    {
+                        _agent.destination = playerTransform.position;
+                        if (_agent.isStopped)
                         {
-                            var randomAttack = new Random().Next(4) + 1;
-                            _animator.SetFloat(MovementParameterEnum.Attack, randomAttack);
+                            _agent.isStopped = false;
+                            _animator.SetFloat(MovementParameterEnum.Walk, MovementValuesEnum.FORWARD);
                         }
                     }
-                    else
-                        _agent.destination = playerTransform.position;
                 }
                 else if (Vector3.Distance(transform.position, playerTransform.position) < tolerance)
                 {
@@ -53,9 +71,9 @@ namespace Script.Manager
                 }
                 else
                 {
-                    if (Vector3.Distance(transform.position, goal.position) < 1f)
+                    if (Vector3.Distance(transform.position, goal.position) < 5f)
                         _agent.destination = _origin;
-                    if (Vector3.Distance(transform.position, _origin) < 1f)
+                    if (Vector3.Distance(transform.position, _origin) < 5f)
                         _agent.destination = goal.position;
                 }
 
@@ -66,15 +84,16 @@ namespace Script.Manager
                 Death();
         }
 
-        private void OnCollisionEnter(Collision other)
+        public void Impact(float damage)
         {
-            if (other.gameObject.CompareTag("PlayerSword") || other.gameObject.CompareTag("Punch")
-                                                           || other.gameObject.CompareTag("Kick"))
+            if (life > 0)
             {
                 blood.Play();
-                _animator.SetFloat(MovementParameterEnum.Attack,0);
+                audios[1].PlayOneShot(audios[1].clip);
+                _animator.SetFloat(MovementParameterEnum.Walk, MovementValuesEnum.IDLE);
+                _animator.SetFloat(MovementParameterEnum.Attack, 0);
                 _animator.SetBool(MovementParameterEnum.Impact, true);
-                life -= 10f;
+                life -= damage;
             }
         }
 
@@ -82,12 +101,30 @@ namespace Script.Manager
         {
             if (!_animator.GetBool(MovementParameterEnum.Death))
             {
-                Destroy(GetComponent<NavMeshAgent>());
-                _animator.SetFloat(MovementParameterEnum.Attack,0);
+                audios[0].PlayOneShot(audios[0].clip);
+                _agent.isStopped = true;
+                DestroyImmediate(GetComponent<NavMeshAgent>());
+                _animator.SetBool(MovementParameterEnum.Impact, false);
+                _animator.SetFloat(MovementParameterEnum.Attack, 0);
                 _animator.SetBool(MovementParameterEnum.Death, true);
             }
-            else if (Utils.animatorIsPlaying(_animator))
+            else
+            {
                 Destroy(gameObject, 7f);
+            }
+        }
+
+        private int GetAttack()
+        {
+            switch (level)
+            {
+                case 1: return 1;
+                case 2: return new Random().Next(2) + 1;
+                case 3: return new Random().Next(4) + 1;
+                case 4: return new Random().Next(5) + 1;
+                case 5: return new Random().Next(7) + 1;
+                default: return 1;
+            }
         }
     }
 }

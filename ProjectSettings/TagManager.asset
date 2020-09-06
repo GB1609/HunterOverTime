@@ -16,6 +16,7 @@ TagManager:
   - PlayerSword
   - Kick
   - Punch
+  - Enemy
   layers:
   - Default
   - TransparentFX
