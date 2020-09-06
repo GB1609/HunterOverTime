@@ -13,7 +13,7 @@ namespace Script.Manager
         public Rigidbody rigidbodyPlayer;
         public new UnityEngine.Camera camera;
         public int speed;
-        private bool _boosted;
+        public bool _boosted;
         private bool _swim;
         private bool _armed;
         private bool _falling;
@@ -309,7 +309,6 @@ namespace Script.Manager
             {
                 health -= damage;
                 healthSlider.value = health;
-                Debug.Log("HEALT: " + health);
                 Vector3 b = new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z) * -1;
                 transform.position += b * (Time.deltaTime * speed);
                 animator.SetBool(MovementParameterEnum.Impact, true);
