@@ -11,4 +11,5 @@
     public const string Attack = "Attack";
     public const string Impact = "Impact";
     public const string Death = "Death";
+    public const string TakeSacred = "TakeSacred";
 }

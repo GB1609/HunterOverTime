@@ -1,10 +1,12 @@
 ﻿using DevionGames.UIWidgets;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Script.Manager
 {
     public class MedievalSceneManager : MonoBehaviour
     {
+        public bool win;
         public Canvas inGame;
         public Canvas instructions;
         public Canvas settings;
@@ -52,6 +54,14 @@ namespace Script.Manager
             instructions.gameObject.SetActive(false);
             settings.gameObject.SetActive(false);
             Managers.Resume();
+        }
+
+        public void Win()
+        {
+        }
+
+        public void Die()
+        {
         }
     }
 }

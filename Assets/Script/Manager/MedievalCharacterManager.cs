@@ -13,12 +13,15 @@ namespace Script.Manager
         public Rigidbody rigidbodyPlayer;
         public new UnityEngine.Camera camera;
         public int speed;
+        public ParticleSystem teleporter;
+        public MedievalSceneManager manager;
         public bool _boosted;
         private bool _swim;
         private bool _armed;
         private bool _falling;
 
         public int health;
+        private int _maxHealth;
         public Slider healthSlider;
 
 
@@ -37,6 +40,7 @@ namespace Script.Manager
 
         void Start()
         {
+            _maxHealth = health;
             _activeNarration = _stepNarration = _previousNarration = 0;
             _originalSwordTransform = Instantiate(sword.transform);
             _audioSources = GetComponents<AudioSource>();
@@ -116,6 +120,9 @@ namespace Script.Manager
 
                     Audio();
                 }
+
+                if (animator.GetBool(MovementParameterEnum.TakeSacred))
+                    animator.SetBool(MovementParameterEnum.TakeSacred, false);
             }
         }
 
@@ -297,11 +304,35 @@ namespace Script.Manager
 
             if (other.gameObject.CompareTag("Selectable") && other.gameObject.name.ToLower().Contains("chest"))
             {
-                health += health;
-                healthSlider.value += health;
+                MoreLife(other.gameObject.GetComponent<ChestManager>().health);
                 Destroy(other.gameObject);
             }
+
+            if (other.gameObject.CompareTag("Selectable") && other.gameObject.transform.name.Equals("SacredSword"))
+            {
+                other.gameObject.GetComponent<SacredSwordManager>().Take();
+            }
+
+            if (other.gameObject.CompareTag("Selectable") && other.gameObject.transform.name.Equals("SacredSword"))
+            {
+                other.gameObject.GetComponent<SacredSwordManager>().Take();
+            }
+
+            if (teleporter.gameObject.activeSelf && other.gameObject.CompareTag("Teleporter"))
+                manager.Win();
+
+            if(health<0)
+                manager.Die();
         }
+
+        public void MoreLife(int _health)
+        {
+            health += _health;
+            if (health > _maxHealth)
+                health = _maxHealth;
+            healthSlider.value = health;
+        }
+
 
         public void Impact(int damage)
         {
