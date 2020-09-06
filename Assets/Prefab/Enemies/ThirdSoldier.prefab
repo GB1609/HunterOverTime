@@ -352,7 +352,7 @@ MonoBehaviour:
   goal: {fileID: 665528263421158489}
   _animator: {fileID: 0}
   playerTransform: {fileID: 0}
-  life: 85
+  life: 75
   aggression: 1.5
   tolerance: 18
 --- !u!1 &560320874296595593

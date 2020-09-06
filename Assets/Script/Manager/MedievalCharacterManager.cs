@@ -67,7 +67,7 @@ namespace Script.Manager
                     _falling = true;
                     animator.SetBool(MovementParameterEnum.Fall, true);
                 }
-                else if (_falling && GetHitDistanceFroomFloor() < 1)
+                else if (_falling && GetHitDistanceFroomFloor() < 1f)
                 {
                     health -= 15;
                     healthSlider.value = health;
@@ -297,7 +297,8 @@ namespace Script.Manager
 
             if (other.gameObject.CompareTag("Selectable") && other.gameObject.name.ToLower().Contains("chest"))
             {
-                health += 25;
+                health += health;
+                healthSlider.value += health;
                 Destroy(other.gameObject);
             }
         }

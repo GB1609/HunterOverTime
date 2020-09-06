@@ -11,12 +11,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: White
-    second: {fileID: 2100000, guid: e27092336feab9f489d87a8e5a90a0a4, type: 2}
+    second: {fileID: 2100000, guid: ec2cf8a7778bf734799cb56903a27226, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: blinn5
-    second: {fileID: 2100000, guid: 79ba5bbf24056404483ba62fbd4a0e75, type: 2}
+    second: {fileID: 2100000, guid: ed4546d8b3d225a49b10b30319cda1b5, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -47,7 +47,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 2
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -94,7 +94,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 2
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
