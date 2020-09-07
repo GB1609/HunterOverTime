@@ -5,7 +5,6 @@ namespace Script.Manager
 {
     public class MedievalSceneManager : MonoBehaviour
     {
-        public bool win;
         public Canvas inGame;
         public Canvas instructions;
         public Canvas settings;
@@ -57,7 +56,6 @@ namespace Script.Manager
 
         public void Win(UnityEngine.Camera camera)
         {
-            Managers.Pause();
             inGame.gameObject.SetActive(false);
             instructions.gameObject.SetActive(false);
             settings.gameObject.SetActive(false);
@@ -66,7 +64,6 @@ namespace Script.Manager
 
         public void Die(UnityEngine.Camera camera)
         {
-            Managers.Pause();
             inGame.gameObject.SetActive(false);
             instructions.gameObject.SetActive(false);
             settings.gameObject.SetActive(false);

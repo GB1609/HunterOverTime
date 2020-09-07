@@ -92,21 +92,26 @@ public class Managers : MonoBehaviour
 
     public static void Die(Camera camera)
     {
+        Pause();
         _videos[1].targetCamera = camera;
+        _videos[1].Prepare();
         _videos[1].Play();
         _videos[1].loopPointReached += CheckOver;
+        Resume();
     }
 
     public static void Win(Camera camera)
     {
+        Pause();
         _videos[0].targetCamera = camera;
+        _videos[1].Prepare();
         _videos[0].Play();
         _videos[0].loopPointReached += CheckOver;
+        Resume();
     }
 
     private static void CheckOver(VideoPlayer vp)
     {
-        Resume();
         Scene.FadeAndLoadScene("Managers");
     }
 }

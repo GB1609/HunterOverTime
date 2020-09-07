@@ -66,6 +66,8 @@ namespace Script.Manager
         // Update is called once per frame
         void Update()
         {
+            if (health < 0)
+                manager.Die(camera);
             if (!Managers.PAUSE)
             {
                 if (GetHitDistanceFroomFloor() > 5)
@@ -311,9 +313,6 @@ namespace Script.Manager
 
             if (teleporter.gameObject.activeSelf && other.gameObject.CompareTag("Teleporter"))
                 manager.Win(camera);
-
-            if (health < 0)
-                manager.Die(camera);
         }
 
         public void MoreLife(int _health)
