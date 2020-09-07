@@ -135,5 +135,12 @@ namespace Script.Manager
             if (other.gameObject.CompareTag("Player") && other.gameObject.name.Equals("Boom"))
                 life -= other.gameObject.GetComponent<CannonManager>().damage;
         }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            if (other.gameObject.CompareTag("Player") && other.gameObject.name.Equals("Boom") ||
+                other.gameObject.name.Equals("missle") ||other.gameObject.name.Equals("Twinkle") )
+                life -= other.gameObject.GetComponent<CannonManager>().damage;
+        }
     }
 }
