@@ -4121,6 +4121,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1061794894}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1061794896 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198330513847097460, guid: ef134ce1a2a98d94fb68c860d9c736c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1061794894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1065368585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6704,7 +6710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 1294684596}
   player: {fileID: 708503426707176565}
-  particle: {fileID: 0}
+  particle: {fileID: 1061794896}
   damage: 300
 --- !u!1 &1910258248 stripped
 GameObject:
@@ -7362,17 +7368,17 @@ PrefabInstance:
     - target: {fileID: 523932962988867520, guid: e95b62c946cbafe468d9044585baa36b,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 523932962988867520, guid: e95b62c946cbafe468d9044585baa36b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 523932962988867520, guid: e95b62c946cbafe468d9044585baa36b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 523932962988867520, guid: e95b62c946cbafe468d9044585baa36b,
         type: 3}
