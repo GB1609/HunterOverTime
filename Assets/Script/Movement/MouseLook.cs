@@ -72,7 +72,7 @@ public class MouseLook : MonoBehaviour
 
     public static float ClampAngleVertical(float angle, float min, float max)
     {
-        float m = 23F;
+        float m = 30F;
         if (angle < -m)
             angle = -m;
         if (angle > m)

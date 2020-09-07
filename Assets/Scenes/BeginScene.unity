@@ -1663,36 +1663,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988937072}
   m_CullTransparentMesh: 0
---- !u!1 &1127317892
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1127317893}
-  m_Layer: 0
-  m_Name: Audio Source
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1127317893
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1127317892}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6812873, y: -12.780134, z: 183.63164}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1136477143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,7 +1791,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.3509887e-38, z: 2.7107536e-20, w: 7.737127e+25}
+  m_BoundingSphereOverride: {x: 0.9869548, y: -0.000000001372924, z: 9.1e-43, w: 2.84e-43}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2392,7 +2362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   options:
   - title: 
-    text: Missione "La Spada Sacra" selezionata
+    text: Missione "La Spada Sacra" selezionata. Utilizza il Teleporter per raggiungerla!
     color: {r: 1, g: 1, b: 1, a: 0}
     icon: {fileID: 21300000, guid: 3fccbea4b15adee4e98fc59b09952d10, type: 3}
     delay: 0.2
@@ -3468,17 +3438,17 @@ PrefabInstance:
       propertyPath: tooltip
       value: 'Ciao, Sono Claudia.
 
-        Se hai intenzione di giocare bisogna che
-        tu scelga la missione nel pannello alla mia destra.
+        Vuoi giocare? Utilizza il pannello alla
+        mia destra per selezionare una missione.
 
-        In Alternativa,
-        alle tue spalle troverai a disposizione il pannello per la gestione delle
-        impostazioni.
+        In Alternativa, puoi gestire
+        le impostazioni nel pannello alle tue spalle.
 
-        Avvicinati ad uno di loro per interagirci!
+        Per interagire basta
+        solamente che ti avvicini ad uno di loro!
 
-        Una
-        volta selezionata la missione puoi raggiungerla utilizzando il Teleporter!'
+        Una volta selezionata
+        la missione puoi raggiungerla utilizzando il Teleporter!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ffb746506cf8c4b8fd4cfc21213221, type: 3}
@@ -3559,6 +3529,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 183646835355422898, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: fullscreen
+      value: 
+      objectReference: {fileID: 6181545872968206247}
+    - target: {fileID: 183646835355422898, guid: 502d8859d0c25694aa54e8ae8032501c,
+        type: 3}
+      propertyPath: quality
+      value: 
+      objectReference: {fileID: 6181545872968206248}
     - target: {fileID: 183646835363525686, guid: 502d8859d0c25694aa54e8ae8032501c,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -4420,6 +4400,30 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6181545872968206245}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6181545872968206247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 183646834214473911, guid: 502d8859d0c25694aa54e8ae8032501c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6181545872968206245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6181545872968206248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1685224805532715916, guid: 502d8859d0c25694aa54e8ae8032501c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6181545872968206245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8120058792999595881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4450,7 +4454,7 @@ PrefabInstance:
     - target: {fileID: 8120058792980990857, guid: 587edde14328dcb4f85f9b4e6acd6bfa,
         type: 3}
       propertyPath: positionOption.z
-      value: -23.5
+      value: -22.5
       objectReference: {fileID: 0}
     - target: {fileID: 8120058792980990857, guid: 587edde14328dcb4f85f9b4e6acd6bfa,
         type: 3}
@@ -4470,7 +4474,7 @@ PrefabInstance:
     - target: {fileID: 8120058792980990857, guid: 587edde14328dcb4f85f9b4e6acd6bfa,
         type: 3}
       propertyPath: positionSelect.z
-      value: -10
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 8120058792980990857, guid: 587edde14328dcb4f85f9b4e6acd6bfa,
         type: 3}
