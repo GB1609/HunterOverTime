@@ -1821,7 +1821,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 2.473e-41, z: 0, w: -2.305843e+18}
+  m_BoundingSphereOverride: {x: 0, y: 2.3509887e-38, z: 2.7107536e-20, w: 7.737127e+25}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2076,7 +2076,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1782845635}
   m_OnClick:
     m_PersistentCalls:
@@ -4497,6 +4497,11 @@ PrefabInstance:
       propertyPath: particleSystem
       value: 
       objectReference: {fileID: 620297350}
+    - target: {fileID: 8120058792980990857, guid: 587edde14328dcb4f85f9b4e6acd6bfa,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8120058792980990859, guid: 587edde14328dcb4f85f9b4e6acd6bfa,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 730831390}
   - component: {fileID: 730831389}
-  - component: {fileID: 730831388}
   - component: {fileID: 730831387}
   - component: {fileID: 730831391}
+  - component: {fileID: 730831392}
+  - component: {fileID: 730831388}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -155,18 +156,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a5376114ef19b418677eaa273922d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &730831388
-MonoBehaviour:
+--- !u!328 &730831388
+VideoPlayer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730831386}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83d4cb589a6470418cfed4547d634f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_VideoClip: {fileID: 32900000, guid: 265d449c2f1410043a6fd0828b571a34, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
 --- !u!114 &730831389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c089028aef22d947b8b1fa26291231c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faderCanvasGroup: {fileID: 913607618}
+  transition: {fileID: 913607618}
   fadeDuration: 1
   startingSceneName: BeginScene
 --- !u!4 &730831390
@@ -214,6 +237,40 @@ MonoBehaviour:
   menuBgMusic: Sounds/MenuAudio
   medievalBgMusic: Sounds/MedievalAudio
   mayaBgMusic: Sounds/MayaAudio
+--- !u!328 &730831392
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730831386}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 327cb9d6cfc146a44a466bdfb62e73da, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 1
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
 --- !u!1 &913607616
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +284,7 @@ GameObject:
   - component: {fileID: 913607619}
   - component: {fileID: 913607618}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
